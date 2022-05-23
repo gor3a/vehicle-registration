@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/dashbord.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Odia:wght@300;400;700&display=swap" rel="stylesheet" 0>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="overflow: hidden">
+<div class="indexParent">
+    <div class="leftIndex">
+        <img src="imgs/gg1.png" alt="#" class="background0">
+    </div>
+    <div class="rightIndex">
+        <div class="loginContainer">
+            <div class="lables">
+                <h2 class="page0">Log in</h2>
+                <h1 class="page0">Welcome Back!</h1>
+            </div>
+            <form action="/login" method="POST">
+                <div class="emailAddress0">
+                    <div>Email Address</div>
+                    <input class="inputPage0" type="email" name="email" placeholder="example@test.com"/>
+                    <span><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                </div>
+                <div class="password0">
+                    <div>Password</div>
+                    <input class="inputPage0" type="password" name="password" placeholder="example@test.com"/>
+                    <span><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+                </div>
+                <div class="btn0">
+                    <button type="submit">Log in</button>
+                </div>
+            </form>
+            <div class="createNewAccount">
+                <h5 class="page0h5">Don't have an account?</h5>
+                <a href="/signup">
+                    <h5 class="page0h5">Create one now</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End-->
+<script src="js/master.js"></script>
+</body>
+</html>
