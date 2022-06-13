@@ -1,85 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up</title>
-    <link rel="stylesheet" href="register/css//normalize.css">
-    <link rel="stylesheet" href="register/css//dashbord.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" 0>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <script src="/register/https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
-    <script src="/register/https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="/register/js/master.js"></script>
-</head>
-
-<body style="overflow: hidden">
-<div class="indexParent">
-    <div class="leftIndex">
-        <img src="/register/imgs/gg5.png" alt="#" class="background0">
-    </div>
-    <div class="rightIndex">
-        <div class="loginContainer">
-            <div class="lables">
-                <h2 class="page1">Sign up.</h2>
-                <h1 class="page1">Welcome!</h1>
-            </div>
-            <form action="/signup" method="POST">
-                <div class="signUP0">
-                    <div>Full name (The first four names)</div>
-                    <input class="inputPage0" type="text" name="full_name" placeholder="Mina Sameh Lamei Farag"/>
-                    <span><i class="fa-regular fa-circle-user"></i></span>
+<div class="signup">
+    <div class="indexParent">
+        <div class="leftIndex">
+            <img src="imgs/gg5.png" alt="#" class="background0">
+        </div>
+        <div class="rightIndex">
+            <div class="loginContainer">
+                <div class="lables">
+                    <h2 class="page1">Sign up.</h2>
+                    <h1 class="page1">Welcome!</h1>
                 </div>
-                <div class="signUP0">
-                    <div>Email Address</div>
-                    <input class="inputPage0" type="email" name="email" placeholder="example@test.com"/>
-                    <span><i class="fa-regular fa-envelope"></i></span>
+                <form action="/signup" method="POST">
+                    <div class="signUP0">
+                        <div>Full name (The first four names)</div>
+                        <label>
+                            <input class="inputPage0" type="text" name="full_name" required
+                                   placeholder="Mina Sameh Lamei Farag"/>
+                        </label>
+                        <span><i class="fa-regular fa-circle-user"></i></span>
+                    </div>
+                    <div class="signUP0">
+                        <div>Email Address</div>
+                        <label>
+                            <input class="inputPage0" type="email" name="email" required
+                                   placeholder="example@test.com"/>
+                        </label>
+                        <span><i class="fa-regular fa-envelope"></i></span>
+                    </div>
+                    <div class="signUP0">
+                        <div>National ID</div>
+                        <label>
+                            <input class="inputPage0" type="number" name="national_id"
+                                   required placeholder="300010701xxxxx"/>
+                        </label>
+                        <span><i class="fa-solid fa-id-card"></i></span>
+                    </div>
+                    <div class="signUP0">
+                        <div>Phone</div>
+                        <label>
+                            <input class="inputPage0" type="number" name="phone" required placeholder="01xxxxxxxxx"/>
+                        </label>
+                        <span><i class="fa-solid fa-phone"></i></span>
+                    </div>
+                    <div class="signUP0">
+                        <div>Password</div>
+                        <label>
+                            <input class="inputPage0" type="password" name="password" required
+                                   placeholder="●●●●●●●●●●●"/>
+                        </label>
+                        <span><i class="fa-regular fa-eye-slash"></i></span>
+                    </div>
+                    <div class="signUP0">
+                        <div>Confirm Password</div>
+                        <label>
+                            <input class="inputPage0" type="password" name="confirm_password" required
+                                   placeholder="●●●●●●●●●●●"/>
+                        </label>
+                        <span><i class="fa-regular fa-eye-slash"></i></span>
+                    </div>
+                    <!--                <div class="termsCondition">-->
+                    <!--                    <label>-->
+                    <!--                        <input type="checkbox" class="checkInputBtn">-->
+                    <!--                    </label>-->
+                    <!--                    <h5 class="termsCondition0">I agree to the</h5>-->
+                    <!--                    <h5 class="termsCondition1">Terms and Conditions, Return Policy & Privacy Policy</h5>-->
+                    <!--                </div>-->
+                    <div class="btn0">
+                        <button type="submit">Sign Up</button>
+                    </div>
+                </form>
+                <div class="accountCheck">
+                    <h5 class="page0h5">Have an account?</h5>
+                    <a href="/login">
+                        <h5 class="page0h5">Log in</h5>
+                    </a>
                 </div>
-                <div class="signUP0">
-                    <div>National ID</div>
-                    <input class="inputPage0" type="number" name="national_id" placeholder="300010701xxxxx"/>
-                    <span><i class="fa-solid fa-id-card"></i></i></span>
-                </div>
-                <div class="signUP0">
-                    <div>Phone</div>
-                    <input class="inputPage0" type="number" name="phone" placeholder="01xxxxxxxxx"/>
-                    <span><i class="fa-solid fa-phone"></i></i></span>
-                </div>
-                <div class="signUP0">
-                    <div>Password</div>
-                    <input class="inputPage0" type="password" name="password" placeholder="●●●●●●●●●●●"/>
-                    <span><i class="fa-regular fa-eye-slash"></i></i></span>
-                </div>
-                <div class="signUP0">
-                    <div>Confirm Password</div>
-                    <input class="inputPage0" type="password" name="confirm_password" placeholder="●●●●●●●●●●●"/>
-                    <span><i class="fa-regular fa-eye-slash"></i></i></span>
-                </div>
-                <div class="termsCondition">
-                    <input type="checkbox" class="checkInputBtn">
-                    <h5 class="termsCondition0">I agree to the</h5>
-                    <h5 class="termsCondition1">Terms and Conditions, Return Policy & Privacy Policy</h5>
-                </div>
-                <div class="btn0">
-                    <button type="submit">Sign Up</button>
-                </div>
-            </form>
-            <div class="accountCheck">
-                <h5 class="page0h5">Have an account?</h5>
-                <a href="#">
-                    <h5 class="page0h5">Log in</h5>
-                </a>
             </div>
         </div>
     </div>
 </div>
-<!--End-->
-<script src="/register/js/master.js"></script>
-</body>
-
-</html>

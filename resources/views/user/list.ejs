@@ -1,0 +1,105 @@
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        background-color: #33c9ae;
+        min-height: 100vh;
+    }
+</style>
+<div class="users">
+    <div class="mainDashboard">
+        <div class="dashBoardSelection">
+            <div class="logo">
+                <img src="/imgs/logo.png" alt="#">
+            </div>
+            <hr class="hrHT">
+            <a href="/">
+                <div class="itemSelect itemSelect1">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <span>Dashboard</span>
+                </div>
+            </a>
+            <a href="/profile">
+                <div class="itemSelect itemSelect2 ">
+                    <i class="fa-brands fa-trello"></i>
+                    <span>Profile</span>
+                </div>
+            </a>
+            <a href="/users">
+                <div class="itemSelect itemSelect3 ">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Users</span>
+                </div>
+            </a>
+            <a href="/vehicles">
+                <div class="itemSelect itemSelect3 ">
+                    <i class="fa-solid fa-car-side"></i>
+                    <span>Vehicles</span>
+                </div>
+            </a>
+        </div>
+        <div class="dashBoardView">
+            <div class="logo2">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a class="selectSide" href="/">Dashboard</a>
+                    <a class="selectSide" href="/users">Users</a>
+                    <a href="#">Contact</a>
+                </div>
+
+                <span onclick="openNav()">
+                    <div class="button_menu _s">
+                        <span class="icon_menu"></span>
+                    </div>
+                </span>
+                <a href="#" class="logo-click">
+                    <img src="/imgs/logo.png" alt="#">
+                </a>
+            </div>
+            <div class="topNav">
+                <div class="topNavLeft">
+                    <a href="/"><span>Dashboard</span></a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <a href="/users"><span>Users</span></a>
+                </div>
+                <div class="topNavRight">
+                    <i class="fa-lg fa-regular fa-bell"></i>
+                    <a href="/logout">
+                        <i class="fa-lg fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="viewHr">
+            <div class="title-and-button">
+                <h2>Users</h2>
+                <a href="/users/add" class="btnP1 btnP2">Add a user</a>
+            </div>
+
+            <div class="dashBoardParent">
+                <div class="dashBoardViewChild dashBoardViewChild4">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">User Address</th>
+                                <th scope="col">User Full Name</th>
+                                <th scope="col">User Email</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>0x238E69F87AC13844C8E61112996b00aFee83B3fa</th>
+                                <td>Mina Sameh</td>
+                                <td>mina.sameh.lameh@gmail.com</td>
+                                <td>
+                                    <a href="/users/edit/1">Edit</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

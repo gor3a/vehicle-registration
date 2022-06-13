@@ -1,0 +1,207 @@
+<div class="profile">
+    <div class="mainDashboard">
+        <div class="dashBoardSelection">
+            <div class="logo">
+                <img src="/imgs/logo.png" alt="#">
+            </div>
+            <hr class="hrHT">
+            <a href="/">
+                <div class="itemSelect itemSelect1">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <span>Dashboard</span>
+                </div>
+            </a>
+            <a href="/profile">
+                <div class="itemSelect itemSelect2 ">
+                    <i class="fa-brands fa-trello"></i>
+                    <span>Profile</span>
+                </div>
+            </a>
+            <a href="/users">
+                <div class="itemSelect itemSelect3 ">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Users</span>
+                </div>
+            </a>
+            <a href="/vehicles">
+                <div class="itemSelect itemSelect3 ">
+                    <i class="fa-solid fa-car-side"></i>
+                    <span>Vehicles</span>
+                </div>
+            </a>
+        </div>
+        <div class="dashBoardView">
+
+            <div class="logo2">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a class="selectSide" href="#">Home</a>
+                    <a class="selectSide" href="#">Dashboard</a>
+                    <a class="selectSide" href="#">Profile</a>
+                    <a href="#">Contact</a>
+                </div>
+
+                <span onclick="openNav()">
+                    <div class="button_menu _s">
+                        <span class="icon_menu"></span>
+                    </div>
+                </span>
+                <a href="#" class="logo-click">
+                    <img src="/imgs/logo.png" alt="#">
+                </a>
+            </div>
+            <div class="topNav">
+                <div class="topNavLeft">
+                    <a href="#"><span>Application</span></a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <a href="#"><span>Profile</span></a>
+                </div>
+                <div class="topNavRight">
+                    <i class="fa-lg fa-regular fa-bell"></i>
+                    <a href="/logout">
+                        <i class="fa-lg fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="viewHr">
+            <h2>Update Profile</h2>
+            <div class="dashBoardParent">
+                <div class="dashBoardViewChild dashBoardViewChild1">
+                    <div class="viewLeft">
+                        <div class="viewLeftName">Russell Crowe</div>
+                        <div class="viewLeftJob">Software Engineer</div>
+                        <hr class="hrHT">
+                        <a href="#">
+                            <div class="viewLeftOption">
+                                <i class="fa-solid fa-wave-square"></i>
+                                <span>Personal Information</span>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="viewLeftOption">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>Change Password</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="viewRight">
+                        <div class="viewRightTop">
+                            <div>Display Information</div>
+                            <hr class="hrHT">
+                            <div class="inputBlock">
+                                <div class="inputTitle">Full Name (The First four names)</div>
+                                <label>
+                                    <input type="text" class="fullName inputHT"
+                                           placeholder="Russell Crowe Crowe Crowe"/>
+                                </label>
+                            </div>
+                            <div class="inputBlock">
+                                <div class="inputTitle">Postal Code</div>
+                                <label>
+                                    <input type="number" class="postalCode inputHT" placeholder="11311"/>
+                                </label>
+                            </div>
+                            <div class="inputBlock">
+                                <div class="inputTitle">Address</div>
+                                <label>
+                                    <input type="text" class="adress inputHT" placeholder="Cairo, Egypt"/>
+                                </label>
+                            </div>
+                            <div class="btn ">
+                                <button class="btnP1">Save</button>
+                            </div>
+                        </div>
+                        <div class="viewRightBottomParent">
+                            <div>Personal Information</div>
+                            <hr class="hrHT">
+                            <div class="viewRightBottomChild">
+                                <div class="viewRightBottomL">
+                                    <div class="inputBlock">
+                                        <div class="inputTitle">Email</div>
+                                        <label>
+                                            <input type="text" class="email inputHT" placeholder="example@test.com"/>
+                                        </label>
+                                    </div>
+                                    <div class="inputBlock">
+                                        <div class="inputTitle">Name</div>
+                                        <label>
+                                            <input type="text" class="fullName inputHT" placeholder="Russel Crowe"/>
+                                        </label>
+                                    </div>
+                                    <div class="inputBlock">
+                                        <div class="inputTitle">ID Type</div>
+                                        <label>
+                                            <select class="js-example-basic-single" name="state">
+                                                <option>IC</option>
+                                                <option>ICC</option>
+                                                <option>ICCC</option>
+                                                <option>ICCCC</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div class="inputBlock">
+                                        <div class="inputTitle">ID Type</div>
+                                        <label>
+                                            <input type="text" class="adressNmae inputHT"
+                                                   placeholder="357821204950001"/>
+                                        </label>
+                                    </div>
+                                    <div class="inputBlock">
+                                        <div class="inputTitle">Public Key</div>
+                                        <label>
+                                            <input type="number" class="fullName inputHT"
+                                                   placeholder="3578212049120491204950001"/>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="viewRightBottomR">
+                                    <div class="inputBlock">
+                                        <div class="inputTitle">Phone Number</div>
+                                        <label>
+                                            <input type="number" class="email inputHT" placeholder="+20123456789"/>
+                                        </label>
+                                    </div>
+                                    <div class="inputBlock">
+                                        <div class="inputTitle">Address</div>
+                                        <label>
+                                            <input type="text" class="fullName inputHT" placeholder="Cairo,Egypt"/>
+                                        </label>
+                                    </div>
+                                    <div class="inputBlock">
+                                        <div class="inputTitle">Bank Name</div>
+                                        <label>
+                                            <select class="js-example-basic-single" name="state">
+                                                <option>Bank1</option>
+                                                <option>Bank2</option>
+                                                <option>Bank3</option>
+                                                <option>Bank4</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div class="inputBlock">
+                                        <div class="inputTitle">Bank Account</div>
+                                        <label>
+                                            <input type="text" class="fullName inputHT"
+                                                   placeholder="DBS Current 011-903573-0"/>
+                                        </label>
+                                    </div>
+                                    <div class="inputBlock">
+                                        <div class="inputTitle">Private Key</div>
+                                        <label>
+                                            <input type="password" class="inputHT"/>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <span><i class="fa-regular fa-trash-can"></i></i></span>
+                                <span class="deleteMsg">Delete Account</span>
+                                <span class="btn2"><button class="btnP1">Save</button></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
