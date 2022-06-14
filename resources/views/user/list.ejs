@@ -7,36 +7,7 @@
 </style>
 <div class="users">
     <div class="mainDashboard">
-        <div class="dashBoardSelection">
-            <div class="logo">
-                <img src="/imgs/logo.png" alt="#">
-            </div>
-            <hr class="hrHT">
-            <a href="/">
-                <div class="itemSelect itemSelect1">
-                    <i class="fa-solid fa-house-chimney"></i>
-                    <span>Dashboard</span>
-                </div>
-            </a>
-            <a href="/profile">
-                <div class="itemSelect itemSelect2 ">
-                    <i class="fa-brands fa-trello"></i>
-                    <span>Profile</span>
-                </div>
-            </a>
-            <a href="/users">
-                <div class="itemSelect itemSelect3 ">
-                    <i class="fa-solid fa-user-group"></i>
-                    <span>Users</span>
-                </div>
-            </a>
-            <a href="/vehicles">
-                <div class="itemSelect itemSelect3 ">
-                    <i class="fa-solid fa-car-side"></i>
-                    <span>Vehicles</span>
-                </div>
-            </a>
-        </div>
+        <%- include('../partials/sidebar') %>
         <div class="dashBoardView">
             <div class="logo2">
                 <div id="mySidenav" class="sidenav">
@@ -71,7 +42,6 @@
             <hr class="viewHr">
             <div class="title-and-button">
                 <h2>Users</h2>
-                <a href="/users/add" class="btnP1 btnP2">Add a user</a>
             </div>
 
             <div class="dashBoardParent">
@@ -83,18 +53,20 @@
                                 <th scope="col">User Address</th>
                                 <th scope="col">User Full Name</th>
                                 <th scope="col">User Email</th>
-                                <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th>0x238E69F87AC13844C8E61112996b00aFee83B3fa</th>
-                                <td>Mina Sameh</td>
-                                <td>mina.sameh.lameh@gmail.com</td>
-                                <td>
-                                    <a href="/users/edit/1">Edit</a>
-                                </td>
-                            </tr>
+                            <% if(locals.users && locals.users.length) { %>
+                                <% locals.users.forEach((user)=> { %>
+                                    <tr>
+                                        <th><%= user.user_address %></th>
+                                        <td><%= user.user_name %></td>
+                                        <td><%= user.user_email %></td>
+                                    </tr>
+                                <% }) %>
+                            <% }else { %>
+                                <th>There is no users</th>
+                            <% } %>
                             </tbody>
                         </table>
                     </div>

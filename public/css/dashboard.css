@@ -8,6 +8,10 @@ hr {
   margin: 0;
 }
 
+input:disabled {
+  background: #eee;
+}
+
 .sidebarMenu {
   display: block;
   border-radius: 20px;
@@ -981,16 +985,25 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Anek Odia", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .home h1 {
   font-size: 42px;
 }
 
+.home img {
+  margin-bottom: 25px;
+}
+
 .home .links a {
-  color: black;
+  color: white;
   margin-right: 15px;
+  border: 1px solid #102854;
+}
+
+.home .links a:hover {
+  background: #102854;
 }
 
 .dashBoardSelection .logo, .dashBoardSelection .hrHT {
@@ -1044,7 +1057,7 @@ button {
   padding: 20px;
 }
 
-.viewRightTop > div:first-child, .viewLeft > div:first-child {
+.viewRightTop > div:first-child, .viewLeft > div:first-child, .viewRightBottomParent > div:first-child {
   margin-top: 15px;
 }
 
@@ -1079,6 +1092,7 @@ button {
 
 .profile .viewRight {
   margin-right: 25px;
+  margin-left: 25px;
 }
 
 .profile .viewRight > * {
@@ -1087,6 +1101,15 @@ button {
 
 .profile .viewRight .viewRightBottomParent {
   margin-right: 0;
+}
+
+.profile .viewLeft {
+  margin-bottom: 25px;
+}
+
+.profile .viewRightTop,
+.profile .viewRightBottomParent {
+  padding-bottom: 25px;
 }
 
 /*# sourceMappingURL=dashboard.css.map */

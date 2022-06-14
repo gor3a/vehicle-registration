@@ -1,35 +1,13 @@
+<% var currentPage %>
+<% if (locals.page && locals.page.includes("edit")) {
+    currentPage = 'edit'
+    var id = locals.page.split("/")[locals.page.split("/").length - 1]
+} else {
+    currentPage = 'add'
+} %>
 <div class="vehicles add_vehicle">
     <div class="mainDashboard">
-        <div class="dashBoardSelection">
-            <div class="logo">
-                <img src="/imgs/logo.png" alt="#">
-            </div>
-            <hr class="hrHT">
-            <a href="/">
-                <div class="itemSelect itemSelect1">
-                    <i class="fa-solid fa-house-chimney"></i>
-                    <span>Dashboard</span>
-                </div>
-            </a>
-            <a href="/profile">
-                <div class="itemSelect itemSelect2 ">
-                    <i class="fa-brands fa-trello"></i>
-                    <span>Profile</span>
-                </div>
-            </a>
-            <a href="/users">
-                <div class="itemSelect itemSelect3 ">
-                    <i class="fa-solid fa-user-group"></i>
-                    <span>Users</span>
-                </div>
-            </a>
-            <a href="/vehicles">
-                <div class="itemSelect itemSelect3 ">
-                    <i class="fa-solid fa-car-side"></i>
-                    <span>Vehicles</span>
-                </div>
-            </a>
-        </div>
+        <%- include('../partials/sidebar') %>
         <div class="dashBoardView">
             <div class="logo2">
                 <div id="mySidenav" class="sidenav">
@@ -54,7 +32,7 @@
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                     <a href="/vehicles"><span>Vehicles</span></a>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    <a href="/vehicles/add"><span>Add</span></a>
+                    <a href="/vehicles/<%= currentPage %><%= currentPage === 'edit' ? '/' + id : '' %>"><span><%= currentPage[0].toUpperCase() + currentPage.slice(1) %></span></a>
                 </div>
                 <div class="topNavRight">
                     <i class="fa-lg fa-regular fa-bell"></i>
@@ -64,10 +42,10 @@
                 </div>
             </div>
             <hr class="viewHr">
-            <form action="/vehicles/add" method="POST">
+            <form action="<%= currentPage === 'add' ? '/vehicles/add' : '/vehicles/edit/' + id %>" method="POST">
                 <div class="title-and-button">
-                    <h2>Add a new vehicle</h2>
-                    <button type="submit" class="btnP1 btnP2">Save</button>
+                    <h2><%= currentPage === 'add' ? 'Add a new vehicle' : 'Edit vehicle' %></h2>
+                    <button type="submit" class="btnP1 btnP2"><%= currentPage === 'add' ? 'Save' : 'Update' %></button>
                 </div>
                 <div class="dashBoardParent">
                     <div class="dashBoardViewChild dashBoardViewChild3">
@@ -75,35 +53,47 @@
                             <div>General Information</div>
                             <hr class="hrHT">
                             <div class="inputBlock">
-                                <div class="inputTitle">Owner Name</div>
+                                <div class="inputTitle">Owner Address</div>
                                 <label>
-                                    <input type="text" class="inputHT" name="" placeholder="Mina Sameh"/>
+                                    <input type="text" class="inputHT" name="owner_address"
+                                           placeholder="Owner Address" required
+                                           value="<%= locals.vehicle && locals.user ? locals.user.user_address : "" %>"/>
                                 </label>
                             </div>
-                            <div class="inputBlock">
-                                <div class="inputTitle">Blocked</div>
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
+                            <!--                            <div class="inputBlock">-->
+                            <!--                                <div class="inputTitle">Blocked</div>-->
+                            <!--                                <label class="switch">-->
+                            <!--                                    <input type="checkbox">-->
+                            <!--                                    <span class="slider round"></span>-->
+                            <!--                                </label>-->
+                            <!--                            </div>-->
                         </div>
                         <div class="viewRight">
                             <div class="viewRightTop">
-                                <div>General Information</div>
+                                <div>Owner Information</div>
                                 <hr class="hrHT">
                                 <div class="inputBlock">
                                     <div class="inputTitle">Vehicle Name</div>
                                     <label>
                                         <input type="text" class="inputHT" name="vehicle_name" required
-                                               placeholder="X1"/>
+                                               placeholder="Vehicle Name"
+                                               value="<%= locals.vehicle ? locals.vehicle.vehicle_name : "" %>" <%= currentPage === 'edit' ? 'disabled' : '' %>/>
+                                    </label>
+                                </div>
+                                <div class="inputBlock">
+                                    <div class="inputTitle">Vehicle Model</div>
+                                    <label>
+                                        <input type="text" class="inputHT" name="vehicle_model" required
+                                               placeholder="Vehicle Model" <%= currentPage === 'edit' ? 'disabled' : '' %>
+                                               value="<%= locals.vehicle ? locals.vehicle.vehicle_model : "" %>"/>
                                     </label>
                                 </div>
                                 <div class="inputBlock">
                                     <div class="inputTitle">Vehicle Type</div>
                                     <label>
                                         <input type="text" class="inputHT" name="vehicle_type" required
-                                               placeholder="Hatchback"/>
+                                               placeholder="Vehicle Type" <%= currentPage === 'edit' ? 'disabled' : '' %>
+                                               value="<%= locals.vehicle ? locals.vehicle.vehicle_type : "" %>"/>
                                     </label>
                                 </div>
                                 <div class="vehicleInfoBlock">
@@ -113,7 +103,8 @@
                                             <label>
                                                 <input type="number" class="inputHT" name="vehicle_production_year"
                                                        required
-                                                       placeholder="2022"/>
+                                                       placeholder="Production Year" <%= currentPage === 'edit' ? 'disabled' : '' %>
+                                                       value="<%= locals.vehicle ? locals.vehicle.vehicle_production_year : "" %>"/>
                                             </label>
                                         </div>
                                         <div class="inputBlock">
@@ -121,7 +112,8 @@
                                             <label>
                                                 <input type="number" class="inputHT" name="vehicle_motor_number"
                                                        required
-                                                       placeholder="98423132"/>
+                                                       placeholder="Motor Number" <%= currentPage === 'edit' ? 'disabled' : '' %>
+                                                       value="<%= locals.vehicle ? locals.vehicle.vehicle_motor_number : "" %>"/>
                                             </label>
                                         </div>
                                     </div>
@@ -130,7 +122,8 @@
                                             <div class="inputTitle">Color</div>
                                             <label>
                                                 <input type="text" class="inputHT" name="vehicle_color" required
-                                                       placeholder="Black"/>
+                                                       placeholder="Color"
+                                                       value="<%= locals.vehicle ? locals.vehicle.vehicle_color : "" %>"/>
                                             </label>
                                         </div>
                                         <div class="inputBlock">
@@ -138,7 +131,8 @@
                                             <label>
                                                 <input type="number" class="inputHT" name="vehicle_chassis_number"
                                                        required
-                                                       placeholder="8498998984"/>
+                                                       placeholder="Chassis Number" <%= currentPage === 'edit' ? 'disabled' : '' %>
+                                                       value="<%= locals.vehicle ? locals.vehicle.vehicle_chassis_number : "" %>"/>
                                             </label>
                                         </div>
                                     </div>

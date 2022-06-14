@@ -1,5 +1,6 @@
 const UsersController = require("../app/controllers/UsersController");
 const guest = require("../app/middlewares/guest");
+const auth = require("../app/middlewares/auth");
 
 function userRoutes(app) {
     app.get("/signup", guest, UsersController().signup)
@@ -10,10 +11,10 @@ function userRoutes(app) {
 
     app.get("/logout", UsersController().logout)
 
-    app.get("/users", UsersController().users)
+    app.get("/users", auth, UsersController().users)
 
-    app.get("/profile", UsersController().profile)
-    app.post("/profile", UsersController().profilePost)
+    app.get("/profile", auth, UsersController().profile)
+    app.post("/profile", auth, UsersController().profilePost)
 }
 
 module.exports = userRoutes;

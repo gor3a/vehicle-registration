@@ -7,36 +7,7 @@
 </style>
 <div class="vehicles">
     <div class="mainDashboard">
-        <div class="dashBoardSelection">
-            <div class="logo">
-                <img src="/imgs/logo.png" alt="#">
-            </div>
-            <hr class="hrHT">
-            <a href="/">
-                <div class="itemSelect itemSelect1">
-                    <i class="fa-solid fa-house-chimney"></i>
-                    <span>Dashboard</span>
-                </div>
-            </a>
-            <a href="/profile">
-                <div class="itemSelect itemSelect2 ">
-                    <i class="fa-brands fa-trello"></i>
-                    <span>Profile</span>
-                </div>
-            </a>
-            <a href="/users">
-                <div class="itemSelect itemSelect3 ">
-                    <i class="fa-solid fa-user-group"></i>
-                    <span>Users</span>
-                </div>
-            </a>
-            <a href="/vehicles">
-                <div class="itemSelect itemSelect3 ">
-                    <i class="fa-solid fa-car-side"></i>
-                    <span>Vehicles</span>
-                </div>
-            </a>
-        </div>
+        <%- include('../partials/sidebar') %>
         <div class="dashBoardView">
             <div class="logo2">
                 <div id="mySidenav" class="sidenav">
@@ -86,13 +57,19 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th>BMW 320</th>
-                                <td>Sedan</td>
-                                <td>
-                                    <a href="/vehicles/edit/1">Edit</a>
-                                </td>
-                            </tr>
+                            <% if(locals.vehicles && locals.vehicles.length) { %>
+                                <% locals.vehicles.forEach((vehicle, key)=> { %>
+                                    <tr>
+                                        <th><%= vehicle.vehicle_name %></th>
+                                        <td><%= vehicle.vehicle_type %></td>
+                                        <td>
+                                            <a href="/vehicles/edit/<%= key %>">Edit</a>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            <% }else { %>
+                                <th>There is no vehicles</th>
+                            <% } %>
                             </tbody>
                         </table>
                     </div>

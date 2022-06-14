@@ -8,6 +8,10 @@ hr {
   margin: 0;
 }
 
+input:disabled {
+  background: #eee;
+}
+
 
 .sidebarMenu {
   display: block;
@@ -1016,17 +1020,25 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Anek Odia', sans-serif;
+  font-family: "Roboto", sans-serif;
 
   h1 {
     font-size: 42px;
   }
 
+  img {
+    margin-bottom: 25px;
+  }
+
   .links {
     a {
       //text-decoration: none;
-      color: black;
+      color: white;
       margin-right: 15px;
+      border: 1px solid #102854;
+      &:hover {
+        background: #102854;
+      }
     }
   }
 }
@@ -1092,7 +1104,7 @@ button {
   }
 }
 
-.viewRightTop > div:first-child, .viewLeft > div:first-child {
+.viewRightTop > div:first-child, .viewLeft > div:first-child, .viewRightBottomParent > div:first-child {
   margin-top: 15px;
 }
 
@@ -1131,13 +1143,23 @@ button {
 
   .viewRight {
     margin-right: 25px;
+    margin-left: 25px;
 
     & > * {
       margin-left: 0;
     }
+
     .viewRightBottomParent {
       margin-right: 0;
     }
   }
 
+  .viewLeft {
+    margin-bottom: 25px;
+  }
+
+  .viewRightTop,
+  .viewRightBottomParent {
+    padding-bottom: 25px;
+  }
 }

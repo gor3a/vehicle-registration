@@ -14,6 +14,9 @@ require('dotenv').config()
 const userRoutes = require("./routes/users");
 const homeRoutes = require("./routes/home");
 const vehiclesRoutes = require("./routes/vehicles");
+const installUsers = require("./helpers/installUsers");
+const installManufactures = require("./helpers/installManufactures");
+const installVehicles = require("./helpers/installVehicles");
 
 const app = express();
 
@@ -44,6 +47,10 @@ app.use(session({
     resave: false
 }));
 
+// init
+installUsers()
+installManufactures()
+installVehicles()
 
 homeRoutes(app)
 userRoutes(app)
