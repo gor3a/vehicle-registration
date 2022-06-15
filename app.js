@@ -17,6 +17,9 @@ const vehiclesRoutes = require("./routes/vehicles");
 const installUsers = require("./helpers/installUsers");
 const installManufactures = require("./helpers/installManufactures");
 const installVehicles = require("./helpers/installVehicles");
+const licensesRoutes = require("./routes/licenses");
+const manufacturersRoutes = require("./routes/manufacturers");
+const banksRoutes = require("./routes/banks");
 
 const app = express();
 
@@ -55,6 +58,9 @@ installVehicles()
 homeRoutes(app)
 userRoutes(app)
 vehiclesRoutes(app)
+licensesRoutes(app)
+manufacturersRoutes(app)
+banksRoutes(app)
 
 // catch 404 and forward to error handler
 // app.use(function (req, res, next) {

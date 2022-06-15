@@ -1036,6 +1036,7 @@ button {
       color: white;
       margin-right: 15px;
       border: 1px solid #102854;
+
       &:hover {
         background: #102854;
       }
@@ -1072,6 +1073,32 @@ button {
     h3 {
       margin-left: 20px;
       margin-top: 20px;
+    }
+  }
+
+  .blocks {
+    display: flex;
+    flex-direction: row;
+
+    .block {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .info {
+        .number {
+
+        }
+
+        .title {
+
+        }
+      }
+
+      .icon {
+
+      }
+
     }
   }
 }

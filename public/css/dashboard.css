@@ -1031,6 +1031,17 @@ button {
   margin-top: 20px;
 }
 
+.home_dashboard .blocks {
+  display: flex;
+  flex-direction: row;
+}
+
+.home_dashboard .blocks .block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .vehicles .title-and-button, .users .title-and-button {
   margin: 20px 0;
   display: flex;

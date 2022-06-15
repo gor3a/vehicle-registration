@@ -39,8 +39,8 @@ module.exports = {
             host: "127.0.0.1",     // Localhost (default: none)
             port: 7545,            // Standard Ethereum port (default: none)
             network_id: "5777",
-            gas: 6721975555555555,
-            gasPrice: 2
+            gas: 9007199254740991,
+            gasPrice: 1
         }
 
 
@@ -89,18 +89,21 @@ module.exports = {
 
     // Configure your compilers
     compilers: {
-        solc: {
+        "solc": {
             version: "^0.8.11",    // Fetch exact version from solc-bin (default: truffle's version)
             // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
             // settings: {          // See the solidity docs for advice about optimization and evmVersion
-            //  optimizer: {
-            //    enabled: false,
-            //    runs: 200
-            //  },
+            optimizer: {
+                enabled: true,
+                runs: 1000,
+                details: {
+                    yul: false
+                }
+            }
             //  evmVersion: "byzantium"
             // }
         }
-    },
+    }
 
     // Truffle DB is currently disabled by default; to enable it, change enabled:
     // false to enabled: true. The default storage location can also be

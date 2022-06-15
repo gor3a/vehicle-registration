@@ -1,0 +1,89 @@
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        background-color: #33c9ae;
+        min-height: 100vh;
+    }
+</style>
+<div class="vehicles">
+    <div class="mainDashboard">
+        <%- include('../partials/sidebar') %>
+        <div class="dashBoardView">
+            <div class="logo2">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a class="selectSide" href="/">Dashboard</a>
+                    <a class="selectSide" href="/licenses">Licenses</a>
+                    <a href="#">Contact</a>
+                </div>
+
+                <span onclick="openNav()">
+                    <div class="button_menu _s">
+                        <span class="icon_menu"></span>
+                    </div>
+                </span>
+                <a href="#" class="logo-click">
+                    <img src="/imgs/logo.png" alt="#">
+                </a>
+            </div>
+            <div class="topNav">
+                <div class="topNavLeft">
+                    <a href="/"><span>Dashboard</span></a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <a href="/licenses"><span>Licenses</span></a>
+                </div>
+                <div class="topNavRight">
+                    <i class="fa-lg fa-regular fa-bell"></i>
+                    <a href="/logout">
+                        <i class="fa-lg fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="viewHr">
+            <div class="title-and-button">
+                <h2>Licenses</h2>
+                <a href="/licenses/add" class="btnP1 btnP2">Add a license</a>
+            </div>
+
+            <div class="dashBoardParent">
+                <div class="dashBoardViewChild dashBoardViewChild4">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Vehicle Name</th>
+                                <th scope="col">Expire At</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>BMW X7</th>
+                                <td>2022/5/26</td>
+                                <td>
+                                    <a href="/">Renewal</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>BMW i3</th>
+                                <td>2022/10/8</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Kia Sportage</th>
+                                <td>2025/1/8</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Mercedes Glc</th>
+                                <td>2024/9/18</td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
