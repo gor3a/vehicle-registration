@@ -78,7 +78,7 @@ function VehiclesController() {
                 from: owner_address,
                 gas: 200000000
             })
-
+            req.flash('success', "Added Successfully!");
             res.redirect("/vehicles")
         },
         async editVehicle(req, res, next) {
@@ -123,6 +123,7 @@ function VehiclesController() {
                 gas: 200000000
             })
 
+            req.flash('success', "Updated Successfully!");
             res.redirect("/vehicles/edit/" + vehicle_id)
 
         },

@@ -18,12 +18,12 @@
 
 <body>
 <% if(Object.keys(locals.message).length !== 0 && locals.message["success"] !== undefined){ %>
-    <div class="alert alert-success" id="successMessage" role="alert">
+    <div class="alert alert-success msg" id="successMessage" role="alert">
         <strong>Well done!</strong> <%= message.success %>
     </div>
 <% } %>
 <% if(Object.keys(locals.message).length !== 0 && locals.message["error"] !== undefined){ %>
-    <div class="alert alert-danger" id="errorMessage" role="alert">
+    <div class="alert alert-danger msg" id="errorMessage" role="alert">
         <strong>Error!</strong> <%= message.error %>
     </div>
 <% } %>

@@ -55,6 +55,7 @@ function UsersController() {
                 //     "message": errors,
                 // }));
                 req.flash('error', "Error happened when try to signup");
+                res.redirect("/signup")
             }
 
             const full_name = req.body.full_name
@@ -74,6 +75,7 @@ function UsersController() {
         },
         logout(req, res) {
             delete req.session.user
+            req.flash('success', "Logout Successfully!");
             res.redirect("/")
         },
         async profile(req, res) {
@@ -122,6 +124,7 @@ function UsersController() {
                 gas: 200000000
             })
 
+            req.flash('success', "Updated Successfully!");
             res.redirect("/profile")
         }
     }

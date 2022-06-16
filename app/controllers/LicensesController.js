@@ -91,6 +91,8 @@ function LicensesController() {
                 gas: 200000000
             })
 
+            req.flash('success', "Renewal Successfully!");
+
             res.redirect("/licenses")
         }
     }
