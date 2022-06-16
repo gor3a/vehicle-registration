@@ -29,6 +29,7 @@ function UsersController() {
                             user_password: userResult.user_password,
                             user_phone: userResult.user_phone,
                             user_national_id: userResult.user_national_id,
+                            user_role: userResult.role
                         }
                     })
                     res.redirect("/")
@@ -75,6 +76,11 @@ function UsersController() {
             delete req.session.user
             res.redirect("/")
         },
+        async profile(req, res) {
+            res.render("user/profile", {
+                user: req.session.user
+            })
+        },
         async users(req, res) {
             const contract = await mainContract()
 
@@ -82,13 +88,13 @@ function UsersController() {
                 return result
             })
 
+            const roles = require("../../utilities/roles")
+            const capitalize = require("../../utilities/capitalize")
+
             res.render("user/list", {
-                users
-            })
-        },
-        async profile(req, res) {
-            res.render("user/profile", {
-                user: req.session.user
+                users,
+                roles,
+                capitalize
             })
         },
         async profilePost(req, res) {

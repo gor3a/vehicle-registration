@@ -33,7 +33,6 @@
                     <a href="/users"><span>Users</span></a>
                 </div>
                 <div class="topNavRight">
-                    <i class="fa-lg fa-regular fa-bell"></i>
                     <a href="/logout">
                         <i class="fa-lg fa fa-sign-out" aria-hidden="true"></i>
                     </a>
@@ -53,6 +52,7 @@
                                 <th scope="col">User Address</th>
                                 <th scope="col">User Full Name</th>
                                 <th scope="col">User Email</th>
+                                <th scope="col">User Role</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -62,6 +62,7 @@
                                         <th><%= user.user_address %></th>
                                         <td><%= user.user_name %></td>
                                         <td><%= user.user_email %></td>
+                                        <td><%= locals.capitalize(locals.roles(user.role)) %></td>
                                     </tr>
                                 <% }) %>
                             <% }else { %>

@@ -20,6 +20,9 @@ const installVehicles = require("./helpers/installVehicles");
 const licensesRoutes = require("./routes/licenses");
 const manufacturersRoutes = require("./routes/manufacturers");
 const banksRoutes = require("./routes/banks");
+const installBanks = require("./helpers/installBanks");
+const roles = require("./utilities/roles");
+const installLicenses = require("./helpers/installLicenses");
 
 const app = express();
 
@@ -54,6 +57,14 @@ app.use(session({
 installUsers()
 installManufactures()
 installVehicles()
+installBanks()
+installLicenses()
+
+app.use(function ( req, res, next) {
+    res.locals.currentUser = req.session.user;
+    res.locals.currentUserRole = roles(req.session.user?.user_role);
+    next()
+})
 
 homeRoutes(app)
 userRoutes(app)
@@ -62,24 +73,8 @@ licensesRoutes(app)
 manufacturersRoutes(app)
 banksRoutes(app)
 
-// catch 404 and forward to error handler
-// app.use(function (req, res, next) {
-//     next(createError(404));
-// });
-
 app.use((req, res) => {
     res.status(404).render('404')
 })
-
-// error handler
-app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
-    res.status(err.status || 500);
-    next()
-});
 
 module.exports = app;

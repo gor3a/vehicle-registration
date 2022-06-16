@@ -33,7 +33,7 @@
                     <a href="/banks"><span>Banks</span></a>
                 </div>
                 <div class="topNavRight">
-                    <i class="fa-lg fa-regular fa-bell"></i>
+
                     <a href="/logout">
                         <i class="fa-lg fa fa-sign-out" aria-hidden="true"></i>
                     </a>
@@ -55,22 +55,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th>Banque Misr</th>
-                                <td>Suhila Khaled</td>
-                            </tr>
-                            <tr>
-                                <th>CIB</th>
-                                <td>Hager Soliman</td>
-                            </tr>
-                            <tr>
-                                <th>QNB Group</th>
-                                <td>Mina Sameh</td>
-                            </tr>
-                            <tr>
-                                <th>National Bank of Egypt</th>
-                                <td>Tamer Amen</td>
-                            </tr>
+                            <% if(locals.banks && locals.banks.length) { %>
+                                <% locals.banks.forEach((bank, key)=> { %>
+                                    <tr>
+                                        <th><%= bank.bank_name %></th>
+                                        <td><%= users[key].user_name %></td>
+                                    </tr>
+                                <% }) %>
+                            <% }else { %>
+                                <th>There is no banks</th>
+                            <% } %>
                             </tbody>
                         </table>
                     </div>

@@ -3,22 +3,16 @@
         <img src="/imgs/logo.png" alt="#">
     </div>
     <hr class="hrHT">
-    <a href="/">
-        <div class="itemSelect itemSelect1">
-            <i class="fa-solid fa-house-chimney"></i>
-            <span>Dashboard</span>
-        </div>
-    </a>
+<!--    <a href="/">-->
+<!--        <div class="itemSelect itemSelect1">-->
+<!--            <i class="fa-solid fa-house-chimney"></i>-->
+<!--            <span>Dashboard</span>-->
+<!--        </div>-->
+<!--    </a>-->
     <a href="/profile">
         <div class="itemSelect itemSelect2 ">
             <i class="fa-solid fa-user"></i>
             <span>Profile</span>
-        </div>
-    </a>
-    <a href="/users">
-        <div class="itemSelect itemSelect3 ">
-            <i class="fa-solid fa-user-group"></i>
-            <span>Users</span>
         </div>
     </a>
     <a href="/vehicles">
@@ -27,22 +21,35 @@
             <span>Vehicles</span>
         </div>
     </a>
-    <a href="/banks">
-        <div class="itemSelect itemSelect3 ">
-            <i class="fa-solid fa-building-columns"></i>
-            <span>Banks</span>
-        </div>
-    </a>
-    <a href="/manufacturers">
-        <div class="itemSelect itemSelect3 ">
-            <i class="fa-solid fa-industry"></i>
-            <span>Manufacturers</span>
-        </div>
-    </a>
     <a href="/licenses">
         <div class="itemSelect itemSelect3 ">
             <i class="fa-solid fa-id-card"></i>
             <span>Licenses</span>
         </div>
+    </a>
+    <% if (locals.currentUserRole === 'admin') { %>
+        <a href="/users">
+            <div class="itemSelect itemSelect3 ">
+                <i class="fa-solid fa-user-group"></i>
+                <span>Users</span>
+            </div>
+        </a>
+        <a href="/banks">
+            <div class="itemSelect itemSelect3 ">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Banks</span>
+            </div>
+        </a>
+        <a href="/manufacturers">
+            <div class="itemSelect itemSelect3 ">
+                <i class="fa-solid fa-industry"></i>
+                <span>Manufacturers</span>
+            </div>
+        </a>
+    <% } %>
+    <hr class="hrHT">
+    <a href="/logout" onclick="return confirm('Are you sure want to logout!');">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
     </a>
 </div>

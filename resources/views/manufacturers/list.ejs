@@ -33,7 +33,7 @@
                     <a href="/manufacturers"><span>Manufacturers</span></a>
                 </div>
                 <div class="topNavRight">
-                    <i class="fa-lg fa-regular fa-bell"></i>
+
                     <a href="/logout">
                         <i class="fa-lg fa fa-sign-out" aria-hidden="true"></i>
                     </a>
@@ -55,22 +55,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th>BMW</th>
-                                <td>Ahmed Badr</td>
-                            </tr>
-                            <tr>
-                                <th>Kia</th>
-                                <td>Youssef Mahmoud</td>
-                            </tr>
-                            <tr>
-                                <th>Mercedes</th>
-                                <td>Mina Sameh</td>
-                            </tr>
-                            <tr>
-                                <th>Toyota</th>
-                                <td>George Youssef</td>
-                            </tr>
+                            <% if(locals.manufactures && locals.manufactures.length) { %>
+                                <% locals.manufactures.forEach((manufacture, key)=> { %>
+                                    <tr>
+                                        <th><%= manufacture.manufacture_name %></th>
+                                        <td><%= users[key].user_name %></td>
+                                    </tr>
+                                <% }) %>
+                            <% }else { %>
+                                <th>There is no manufactures</th>
+                            <% } %>
                             </tbody>
                         </table>
                     </div>

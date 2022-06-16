@@ -182,7 +182,7 @@ contract VehicleSystem
         return manufactures.length;
     }
 
-    function add_bank_data(uint _user_id, string memory _name) public {
+    function add_bank(uint _user_id, string memory _name) public {
         bank memory new_bank = bank(_user_id, _name);
         banks.push(new_bank);
     }

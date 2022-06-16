@@ -9,9 +9,22 @@ function VehiclesController() {
                 return result
             })
 
-            res.render("vehicles/list", {
-                vehicles
-            })
+            const currentUserRole = res.locals.currentUserRole
+
+            if (currentUserRole.toString() === 'admin') {
+                return res.render("vehicles/list", {
+                    vehicles
+                })
+            } else {
+                const user_id = res.locals.currentUser?.user_id
+                let new_vehicles = []
+                for (const vehicle of vehicles) {
+                    if (parseInt(vehicle.user_id) === parseInt(user_id)) new_vehicles.push(vehicle)
+                }
+                return res.render("vehicles/list", {
+                    new_vehicles
+                })
+            }
         },
         addVehicle(req, res, next) {
             res.render("vehicles/add")
@@ -54,7 +67,6 @@ function VehiclesController() {
                 vehicle_color,
                 vehicle_production_year,
                 false,
-                0,
                 0
             ).send({
                 from: owner_address,
