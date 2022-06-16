@@ -13,11 +13,9 @@ function UsersController() {
             const email = req.body.email
             const password = req.body.password
 
-            console.log(email, password)
-
             await contract.methods.login(email, password).call(async function (error, result) {
-                console.log(result, typeof result)
                 if (parseInt(result) === -1) {
+                    req.flash('error', "Wrong credentials");
                     res.redirect("/login")
                 } else {
                     await contract.methods.get_user(parseInt(result)).call(function (error, userResult) {
@@ -32,6 +30,7 @@ function UsersController() {
                             user_role: userResult.role
                         }
                     })
+                    req.flash('success', "Login Successfully");
                     res.redirect("/")
                 }
             })
@@ -52,9 +51,10 @@ function UsersController() {
 
             let errors = req.validationErrors();
             if (errors) {
-                return res.send(JSON.stringify({
-                    "message": errors,
-                }));
+                // return res.send(JSON.stringify({
+                //     "message": errors,
+                // }));
+                req.flash('error', "Error happened when try to signup");
             }
 
             const full_name = req.body.full_name
@@ -67,10 +67,10 @@ function UsersController() {
             await contract.methods.register(userAddress, full_name, email, phone, password, national_id, 0).send({
                 from: userAddress,
                 gas: 200000000
-            }, function (error, result) {
-                console.log(result, error)
-                res.redirect("/")
             })
+
+            req.flash('success', "Signup Successfully!");
+            res.redirect("/")
         },
         logout(req, res) {
             delete req.session.user

@@ -17,6 +17,16 @@
 </head>
 
 <body>
+<% if(Object.keys(locals.message).length !== 0 && locals.message["success"] !== undefined){ %>
+    <div class="alert alert-success" id="successMessage" role="alert">
+        <strong>Well done!</strong> <%= message.success %>
+    </div>
+<% } %>
+<% if(Object.keys(locals.message).length !== 0 && locals.message["error"] !== undefined){ %>
+    <div class="alert alert-danger" id="errorMessage" role="alert">
+        <strong>Error!</strong> <%= message.error %>
+    </div>
+<% } %>
 <%- body %>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

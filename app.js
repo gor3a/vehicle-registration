@@ -60,9 +60,10 @@ installVehicles()
 installBanks()
 installLicenses()
 
-app.use(function ( req, res, next) {
+app.use(function (req, res, next) {
     res.locals.currentUser = req.session.user;
     res.locals.currentUserRole = roles(req.session.user?.user_role);
+    res.locals.message = req.flash();
     next()
 })
 

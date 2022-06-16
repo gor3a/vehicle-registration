@@ -1,9 +1,8 @@
-const VehiclesController = require("../app/controllers/VehiclesController");
-const auth = require("../app/middlewares/auth");
 const BanksController = require("../app/controllers/BanksController");
+const admin = require("../app/middlewares/admin");
 
 function banksRoutes(app) {
-    app.get("/banks", BanksController().allBanks)
+    app.get("/banks", admin, BanksController().allBanks)
 }
 
 module.exports = banksRoutes

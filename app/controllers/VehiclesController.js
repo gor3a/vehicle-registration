@@ -11,6 +11,8 @@ function VehiclesController() {
 
             const currentUserRole = res.locals.currentUserRole
 
+            console.log(currentUserRole.toString() === 'admin')
+
             if (currentUserRole.toString() === 'admin') {
                 return res.render("vehicles/list", {
                     vehicles
@@ -18,11 +20,15 @@ function VehiclesController() {
             } else {
                 const user_id = res.locals.currentUser?.user_id
                 let new_vehicles = []
+                console.log(user_id)
                 for (const vehicle of vehicles) {
-                    if (parseInt(vehicle.user_id) === parseInt(user_id)) new_vehicles.push(vehicle)
+                    console.log(vehicle.user_id, user_id)
+                    console.log(parseInt(vehicle.user_id) == parseInt(user_id))
+                    if (parseInt(vehicle.user_id) == parseInt(user_id)) new_vehicles.push(vehicle)
                 }
+                console.log(new_vehicles)
                 return res.render("vehicles/list", {
-                    new_vehicles
+                    vehicles: new_vehicles
                 })
             }
         },
@@ -87,8 +93,6 @@ function VehiclesController() {
                 return result
             })
 
-            console.log(user)
-
             res.render("vehicles/add", {
                 page: req.url,
                 vehicle: vehicle,
@@ -99,8 +103,6 @@ function VehiclesController() {
 
             const contract = await mainContract()
             const vehicle_id = req.params.id
-
-            console.log(vehicle_id)
 
             req.checkBody("owner_address").notEmpty()
             req.checkBody("vehicle_color").notEmpty()
@@ -113,7 +115,6 @@ function VehiclesController() {
             })
 
             await contract.methods.edit_vehicle(
-                0,
                 vehicle_id,
                 newOwner,
                 vehicle_color

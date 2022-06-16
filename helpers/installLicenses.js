@@ -10,35 +10,35 @@ async function installLicenses() {
     })
 
     if (!parseInt(licenses_length)) {
-        await contract.methods.add_license(7, 0, 1652661749).send({
+        await contract.methods.add_license(7, 0, "1652661749000").send({
             from: allAccounts[7],
             gas: 200000000
         })
-        await contract.methods.add_license(7, 1, 958437749).send({
+        await contract.methods.add_license(7, 1, "958437749000").send({
             from: allAccounts[7],
             gas: 200000000
         })
-        await contract.methods.add_license(7, 2, 1835656949).send({
+        await contract.methods.add_license(7, 2, "1835656949000").send({
             from: allAccounts[7],
             gas: 200000000
         })
-        await contract.methods.add_license(7, 3, 1415148149).send({
+        await contract.methods.add_license(7, 3, "1415148149000").send({
             from: allAccounts[7],
             gas: 200000000
         })
-        await contract.methods.add_license(8, 4, 1765759349).send({
+        await contract.methods.add_license(8, 4, "1765759349000").send({
             from: allAccounts[8],
             gas: 200000000
         })
-        await contract.methods.add_license(8, 5, 1285375349).send({
+        await contract.methods.add_license(8, 5, "1285375349000").send({
             from: allAccounts[8],
             gas: 200000000
         })
-        await contract.methods.add_license(8, 6, 1717548149).send({
+        await contract.methods.add_license(8, 6, "1717548149000").send({
             from: allAccounts[8],
             gas: 200000000
         })
-        await contract.methods.add_license(8, 7, 1662338549).send({
+        await contract.methods.add_license(8, 7, "1662338549000").send({
             from: allAccounts[8],
             gas: 200000000
         })

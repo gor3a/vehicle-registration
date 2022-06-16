@@ -279,6 +279,10 @@ contract VehicleSystem
         }
     }
 
+    function renewal_license(uint _license_id, string memory _expire_at) public {
+        licenses[_license_id].expire_at = _expire_at;
+    }
+
     function request_to_renewal_licence(uint _license_id, uint _car_id, uint _user_id) public
     {
         for (uint i = 0; i < licenses.length; i++) {

@@ -10,6 +10,10 @@ function closeNav() {
 }
 
 $(document).ready(function () {
-    $('.js-example-basic-single').select2({ width: '100%' });
+    $('.js-example-basic-single').select2({width: '100%'});
 });
 
+
+$(document).ready(function () {
+    $("#successMessage,#errorMessage").delay(2000).slideUp(300);
+});

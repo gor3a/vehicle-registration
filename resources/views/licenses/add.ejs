@@ -1,0 +1,65 @@
+<div class="profile">
+    <div class="mainDashboard">
+        <%- include('../partials/sidebar') %>
+        <div class="dashBoardView">
+            <div class="logo2">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a class="selectSide" href="#">Home</a>
+                    <a class="selectSide" href="#">Dashboard</a>
+                    <a class="selectSide" href="#">Add a license</a>
+                    <a href="#">Contact</a>
+                </div>
+
+                <span onclick="openNav()">
+                    <div class="button_menu _s">
+                        <span class="icon_menu"></span>
+                    </div>
+                </span>
+                <a href="#" class="logo-click">
+                    <img src="/imgs/logo.png" alt="#">
+                </a>
+            </div>
+            <div class="topNav">
+                <div class="topNavLeft">
+                    <a href="/"><span>Dashboard</span></a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <a href="/profile"><span>Add a license</span></a>
+                </div>
+                <div class="topNavRight">
+                    <a href="/logout" title="Logout">
+                        <i class="fa-lg fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="viewHr">
+            <form action="/profile" method="POST">
+                <div class="title-and-button">
+                    <h2>Add a license</h2>
+                    <button type="submit" class="btnP1 btnP2">Save</button>
+                </div>
+                <div class="dashBoardParent">
+                    <div class="dashBoardViewChild dashBoardViewChild1">
+                        <div class="viewRight">
+                            <div class="viewRightTop">
+                                <div>Select the vehicle</div>
+                                <hr class="hrHT">
+                                <div class="inputBlock">
+                                    <div class="inputTitle">Vehicle Name</div>
+                                    <label>
+                                        <select name="vehicle_id" class="js-example-basic-single" id="vehicle_id">
+                                            <option value="" disabled selected>Chose your vehicle</option>
+                                            <% vehicles.forEach((vehicle, key)=>{ %>
+                                                <option value="<%= key %>"><%= vehicle.vehicle_name %></option>
+                                            <% }) %>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

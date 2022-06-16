@@ -42,7 +42,9 @@
             <hr class="viewHr">
             <div class="title-and-button">
                 <h2>Vehicles</h2>
-                <a href="/vehicles/add" class="btnP1 btnP2">Add a vehicle</a>
+                <% if(locals.currentUserRole === "manufacture") { %>
+                    <a href="/vehicles/add" class="btnP1 btnP2">Add a vehicle</a>
+                <% } %>
             </div>
 
             <div class="dashBoardParent">
@@ -53,7 +55,9 @@
                             <tr>
                                 <th scope="col">Vehicle Name</th>
                                 <th scope="col">Vehicle Type</th>
-                                <th scope="col">Action</th>
+                                <% if (locals.currentUserRole !== 'admin'){ %>
+                                    <th scope="col">Action</th>
+                                <% } %>
                             </tr>
                             </thead>
                             <tbody>
@@ -62,9 +66,11 @@
                                     <tr>
                                         <th><%= vehicle.vehicle_name %></th>
                                         <td><%= vehicle.vehicle_type %></td>
-                                        <td>
-                                            <a href="/vehicles/edit/<%= key %>">Edit</a>
-                                        </td>
+                                        <% if (locals.currentUserRole !== 'admin'){ %>
+                                            <td>
+                                                <a href="/vehicles/edit/<%= key %>">Edit</a>
+                                            </td>
+                                        <% } %>
                                     </tr>
                                 <% }) %>
                             <% }else { %>

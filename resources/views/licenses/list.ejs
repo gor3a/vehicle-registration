@@ -42,7 +42,7 @@
             <hr class="viewHr">
             <div class="title-and-button">
                 <h2>Licenses</h2>
-                <a href="/licenses/add" class="btnP1 btnP2">Add a license</a>
+                <!--                <a href="/licenses/add" class="btnP1 btnP2">Add a license</a>-->
             </div>
 
             <div class="dashBoardParent">
@@ -53,32 +53,29 @@
                             <tr>
                                 <th scope="col">Vehicle Name</th>
                                 <th scope="col">Expire At</th>
-                                <th scope="col">Actions</th>
+                                <% if (locals.currentUserRole !== 'admin'){ %>
+                                    <th scope="col">Actions</th>
+                                <% } %>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th>BMW X7</th>
-                                <td>2022/5/26</td>
-                                <td>
-                                    <a href="/">Renewal</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>BMW i3</th>
-                                <td>2022/10/8</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th>Kia Sportage</th>
-                                <td>2025/1/8</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th>Mercedes Glc</th>
-                                <td>2024/9/18</td>
-                                <td></td>
-                            </tr>
+                            <% if(locals.licenses && locals.licenses.length) { %>
+                                <% locals.licenses.forEach((license, key)=> { %>
+                                    <tr>
+                                        <th><%= vehicles[key].vehicle_name %></th>
+                                        <td><%= locals.timeConverter(license.expire_at) %></td>
+                                        <% if (locals.currentUserRole !== 'admin'){ %>
+                                            <td>
+                                                <% if(currentTime > (parseInt(license.expire_at))){ %>
+                                                    <a href="/licenses/renewal/<%= key %>/<%= license.expire_at %>">Renewal</a>
+                                                <% } %>
+                                            </td>
+                                        <% } %>
+                                    </tr>
+                                <% }) %>
+                            <% }else { %>
+                                <th>There is no licenses</th>
+                            <% } %>
                             </tbody>
                         </table>
                     </div>
