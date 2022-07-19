@@ -20,15 +20,16 @@ function VehiclesController() {
             } else {
                 const user_id = res.locals.currentUser?.user_id
                 let new_vehicles = []
-                console.log(user_id)
-                for (const vehicle of vehicles) {
-                    console.log(vehicle.user_id, user_id)
-                    console.log(parseInt(vehicle.user_id) == parseInt(user_id))
-                    if (parseInt(vehicle.user_id) == parseInt(user_id)) new_vehicles.push(vehicle)
+                let new_vehicles_id = []
+                for (const i in vehicles) {
+                    if (parseInt(vehicles[i].user_id) == parseInt(user_id)) {
+                        new_vehicles.push(vehicles[i])
+                        new_vehicles_id.push(i)
+                    }
                 }
-                console.log(new_vehicles)
                 return res.render("vehicles/list", {
-                    vehicles: new_vehicles
+                    vehicles: new_vehicles,
+                    vehicles_id: new_vehicles_id
                 })
             }
         },

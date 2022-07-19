@@ -67,7 +67,7 @@
                                         <% if (locals.currentUserRole !== 'admin'){ %>
                                             <td>
                                                 <% if(currentTime > (parseInt(license.expire_at))){ %>
-                                                    <a href="/licenses/renewal/<%= key %>/<%= license.expire_at %>">Renewal</a>
+                                                    <a href="/licenses/renewal/<%= new_licenses_id[key] %>/<%= license.expire_at %>">Renewal</a>
                                                 <% } %>
                                             </td>
                                         <% } %>

@@ -1,5 +1,5 @@
 const mainContract = require("../../utilities/contract");
-const {getFirstAccount} = require("../../utilities/accounts");
+const {getFirstAccount, accounts} = require("../../utilities/accounts");
 
 function UsersController() {
 
@@ -40,14 +40,16 @@ function UsersController() {
         },
         async signupPost(req, res, next) {
             const contract = await mainContract()
+            const allAccounts = await accounts()
             let userAddress = await getFirstAccount()
 
             req.checkBody("full_name").notEmpty()
             req.checkBody("email").notEmpty().isEmail()
             req.checkBody("national_id").notEmpty()
             req.checkBody("phone").notEmpty()
+            req.checkBody("public_address").notEmpty()
             req.checkBody("password").notEmpty().isLength({min: 8})
-            req.checkBody("confirm_password").notEmpty().equals(req.body.password)
+            // req.checkBody("confirm_password").notEmpty().equals(req.body.password)
 
             let errors = req.validationErrors();
             if (errors) {
@@ -63,10 +65,15 @@ function UsersController() {
             const national_id = req.body.national_id
             const phone = req.body.phone
             const password = req.body.password
+            const public_address = req.body.public_address
 
+            if(allAccounts.indexOf(public_address) == -1) {
+                req.flash('error', "Public Adddress not found");   
+                return res.redirect("/signup")
+            }
 
-            await contract.methods.register(userAddress, full_name, email, phone, password, national_id, 0).send({
-                from: userAddress,
+            await contract.methods.register(public_address, full_name, email, phone, password, national_id, 0).send({
+                from: public_address,
                 gas: 200000000
             })
 

@@ -68,7 +68,7 @@
                                         <td><%= vehicle.vehicle_type %></td>
                                         <% if (locals.currentUserRole !== 'admin'){ %>
                                             <td>
-                                                <a href="/vehicles/edit/<%= key %>">Edit</a>
+                                                <a href="/vehicles/edit/<%= vehicles_id[key] %>">Edit</a>
                                             </td>
                                         <% } %>
                                     </tr>

@@ -15,7 +15,6 @@ function LicensesController() {
                 return result
             })
 
-
             function timeConverter(UNIX_timestamp) {
                 let a = new Date(parseInt(UNIX_timestamp));
                 let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -37,8 +36,12 @@ function LicensesController() {
             } else {
                 const user_id = res.locals.currentUser?.user_id
                 let new_licenses = []
-                for (const license of licenses) {
-                    if (parseInt(license.user_id) === parseInt(user_id)) new_licenses.push(license)
+                let new_licenses_id = []
+                for (const i in licenses) {
+                    if (parseInt(licenses[i].user_id) === parseInt(user_id)) {
+                        new_licenses.push(licenses[i])
+                        new_licenses_id.push(i)
+                    }
                 }
 
                 let new_vehicles = []
@@ -52,6 +55,7 @@ function LicensesController() {
                     vehicles: new_vehicles,
                     timeConverter,
                     currentTime: Date.now(),
+                    new_licenses_id
                 })
             }
         },
