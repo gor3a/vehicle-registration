@@ -1,0 +1,147 @@
+<% var currentPage %>
+<% if (locals.page && locals.page.includes("edit")) {
+    currentPage = 'edit'
+    var id = locals.page.split("/")[locals.page.split("/").length - 1]
+} else {
+    currentPage = 'add'
+} %>
+<div class="vehicles add_vehicle">
+    <div class="mainDashboard">
+        <%- include('../partials/sidebar') %>
+        <div class="dashBoardView">
+            <div class="logo2">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a class="selectSide" href="#">Home</a>
+                    <a class="selectSide" href="#">Dashboard</a>
+                    <a class="selectSide" href="#">Profile</a>
+                    <a href="#">Contact</a>
+                </div>
+                <span onclick="openNav()">
+                    <div class="button_menu _s">
+                        <span class="icon_menu"></span>
+                    </div>
+                </span>
+                <a href="#" class="logo-click">
+                    <img src="/imgs/logo.png" alt="#">
+                </a>
+            </div>
+            <div class="topNav">
+                <div class="topNavLeft">
+                    <a href="/"><span>Dashboard</span></a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <a href="/vehicles"><span>Vehicles</span></a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <a href="/vehicles/<%= currentPage %><%= currentPage === 'edit' ? '/' + id : '' %>"><span><%= currentPage[0].toUpperCase() + currentPage.slice(1) %></span></a>
+                </div>
+                <div class="topNavRight">
+
+                    <a href="/logout">
+                        <i class="fa-lg fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="viewHr">
+            <form action="<%= currentPage === 'add' ? '/vehicles/add' : '/vehicles/edit/' + id %>" method="POST">
+                <div class="title-and-button">
+                    <h2><%= currentPage === 'add' ? 'Add a new vehicle' : 'Edit vehicle' %></h2>
+                    <button type="submit" class="btnP1 btnP2"><%= currentPage === 'add' ? 'Save' : 'Update' %></button>
+                </div>
+                <div class="dashBoardParent">
+                    <div class="dashBoardViewChild dashBoardViewChild3">
+                        <div class="viewLeft viewLeftVehicle">
+                            <div>General Information</div>
+                            <hr class="hrHT">
+                            <div class="inputBlock">
+                                <div class="inputTitle">Owner Address</div>
+                                <label>
+                                    <input type="text" class="inputHT" name="owner_address"
+                                           placeholder="Owner Address" required
+                                           value="<%= locals.vehicle && locals.user ? locals.user.user_address : "" %>"/>
+                                </label>
+                            </div>
+                            <!--                            <div class="inputBlock">-->
+                            <!--                                <div class="inputTitle">Blocked</div>-->
+                            <!--                                <label class="switch">-->
+                            <!--                                    <input type="checkbox">-->
+                            <!--                                    <span class="slider round"></span>-->
+                            <!--                                </label>-->
+                            <!--                            </div>-->
+                        </div>
+                        <div class="viewRight">
+                            <div class="viewRightTop">
+                                <div>Owner Information</div>
+                                <hr class="hrHT">
+                                <div class="inputBlock">
+                                    <div class="inputTitle">Vehicle Name</div>
+                                    <label>
+                                        <input type="text" class="inputHT" name="vehicle_name" required
+                                               placeholder="Vehicle Name"
+                                               value="<%= locals.vehicle ? locals.vehicle.vehicle_name : "" %>" <%= currentPage === 'edit' ? 'disabled' : '' %>/>
+                                    </label>
+                                </div>
+                                <div class="inputBlock">
+                                    <div class="inputTitle">Vehicle Model</div>
+                                    <label>
+                                        <input type="text" class="inputHT" name="vehicle_model" required
+                                               placeholder="Vehicle Model" <%= currentPage === 'edit' ? 'disabled' : '' %>
+                                               value="<%= locals.vehicle ? locals.vehicle.vehicle_model : "" %>"/>
+                                    </label>
+                                </div>
+                                <div class="inputBlock">
+                                    <div class="inputTitle">Vehicle Type</div>
+                                    <label>
+                                        <input type="text" class="inputHT" name="vehicle_type" required
+                                               placeholder="Vehicle Type" <%= currentPage === 'edit' ? 'disabled' : '' %>
+                                               value="<%= locals.vehicle ? locals.vehicle.vehicle_type : "" %>"/>
+                                    </label>
+                                </div>
+                                <div class="vehicleInfoBlock">
+                                    <div class="vehicleInfoBlockLeft">
+                                        <div class="inputBlock">
+                                            <div class="inputTitle">Production Year</div>
+                                            <label>
+                                                <input type="number" class="inputHT" name="vehicle_production_year"
+                                                       required
+                                                       placeholder="Production Year" <%= currentPage === 'edit' ? 'disabled' : '' %>
+                                                       value="<%= locals.vehicle ? locals.vehicle.vehicle_production_year : "" %>"/>
+                                            </label>
+                                        </div>
+                                        <div class="inputBlock">
+                                            <div class="inputTitle">Motor Number</div>
+                                            <label>
+                                                <input type="number" class="inputHT" name="vehicle_motor_number"
+                                                       required
+                                                       placeholder="Motor Number" <%= currentPage === 'edit' ? 'disabled' : '' %>
+                                                       value="<%= locals.vehicle ? locals.vehicle.vehicle_motor_number : "" %>"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="vehicleInfoBlockRight">
+                                        <div class="inputBlock">
+                                            <div class="inputTitle">Color</div>
+                                            <label>
+                                                <input type="text" class="inputHT" name="vehicle_color" required
+                                                       placeholder="Color"
+                                                       value="<%= locals.vehicle ? locals.vehicle.vehicle_color : "" %>"/>
+                                            </label>
+                                        </div>
+                                        <div class="inputBlock">
+                                            <div class="inputTitle">Chassis Number</div>
+                                            <label>
+                                                <input type="number" class="inputHT" name="vehicle_chassis_number"
+                                                       required
+                                                       placeholder="Chassis Number" <%= currentPage === 'edit' ? 'disabled' : '' %>
+                                                       value="<%= locals.vehicle ? locals.vehicle.vehicle_chassis_number : "" %>"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

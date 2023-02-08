@@ -1,0 +1,78 @@
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        background-color: #33c9ae;
+        min-height: 100vh;
+    }
+</style>
+<div class="users">
+    <div class="mainDashboard">
+        <%- include('../partials/sidebar') %>
+        <div class="dashBoardView">
+            <div class="logo2">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a class="selectSide" href="/">Dashboard</a>
+                    <a class="selectSide" href="/users">Users</a>
+                    <a href="#">Contact</a>
+                </div>
+
+                <span onclick="openNav()">
+                    <div class="button_menu _s">
+                        <span class="icon_menu"></span>
+                    </div>
+                </span>
+                <a href="#" class="logo-click">
+                    <img src="/imgs/logo.png" alt="#">
+                </a>
+            </div>
+            <div class="topNav">
+                <div class="topNavLeft">
+                    <a href="/"><span>Dashboard</span></a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <a href="/users"><span>Users</span></a>
+                </div>
+                <div class="topNavRight">
+                    <a href="/logout">
+                        <i class="fa-lg fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="viewHr">
+            <div class="title-and-button">
+                <h2>Users</h2>
+            </div>
+
+            <div class="dashBoardParent">
+                <div class="dashBoardViewChild dashBoardViewChild4">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">User Address</th>
+                                <th scope="col">User Full Name</th>
+                                <th scope="col">User Email</th>
+                                <th scope="col">User Role</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% if(locals.users && locals.users.length) { %>
+                                <% locals.users.forEach((user)=> { %>
+                                    <tr>
+                                        <th><%= user.user_address %></th>
+                                        <td><%= user.user_name %></td>
+                                        <td><%= user.user_email %></td>
+                                        <td><%= locals.capitalize(locals.roles(user.role)) %></td>
+                                    </tr>
+                                <% }) %>
+                            <% }else { %>
+                                <th>There is no users</th>
+                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

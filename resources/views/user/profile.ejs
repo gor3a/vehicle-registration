@@ -1,0 +1,139 @@
+<div class="profile">
+    <div class="mainDashboard">
+        <%- include('../partials/sidebar') %>
+        <div class="dashBoardView">
+            <div class="logo2">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a class="selectSide" href="#">Home</a>
+                    <a class="selectSide" href="#">Dashboard</a>
+                    <a class="selectSide" href="#">Profile</a>
+                    <a href="#">Contact</a>
+                </div>
+
+                <span onclick="openNav()">
+                    <div class="button_menu _s">
+                        <span class="icon_menu"></span>
+                    </div>
+                </span>
+                <a href="#" class="logo-click">
+                    <img src="/imgs/logo.png" alt="#">
+                </a>
+            </div>
+            <div class="topNav">
+                <div class="topNavLeft">
+                    <a href="/"><span>Dashboard</span></a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <a href="/profile"><span>Profile</span></a>
+                </div>
+                <div class="topNavRight">
+                    <a href="/logout" title="Logout">
+                        <i class="fa-lg fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="viewHr">
+            <form action="/profile" method="POST">
+                <div class="title-and-button">
+                    <h2>Profile</h2>
+                    <button type="submit" class="btnP1 btnP2">Save</button>
+                </div>
+                <div class="dashBoardParent">
+                    <div class="dashBoardViewChild dashBoardViewChild1">
+                        <div class="viewRight">
+                            <div class="viewRightTop">
+                                <div>Change Password</div>
+                                <hr class="hrHT">
+                                <div class="inputBlock">
+                                    <div class="inputTitle">Password</div>
+                                    <label>
+                                        <input type="password" class="inputHT" value="<%= locals.user.user_password %>"
+                                               name="password" required
+                                               placeholder="Password"/>
+                                    </label>
+                                </div>
+                                <div class="inputBlock">
+                                    <div class="inputTitle">Confirm Password</div>
+                                    <label>
+                                        <input type="password" name="confirm_password" class="inputHT"
+                                               value="<%= locals.user.user_password %>" required
+                                               placeholder="Confirm Password"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="viewRightBottomParent">
+                                <div>Personal Information</div>
+                                <hr class="hrHT">
+                                <div class="viewRightBottomChild">
+                                    <div class="viewRightBottomL">
+                                        <div class="inputBlock">
+                                            <div class="inputTitle">Full Name</div>
+                                            <label>
+                                                <input type="text" class="inputHT" name="full_name"
+                                                       value="<%= locals.user.user_name %>" disabled required
+                                                       placeholder="Full Name"/>
+                                            </label>
+                                        </div>
+                                        <div class="inputBlock">
+                                            <div class="inputTitle">Email</div>
+                                            <label>
+                                                <input type="text" class="inputHT" name="email"
+                                                       value="<%= locals.user.user_email %>" disabled required
+                                                       placeholder="Email Address"/>
+                                            </label>
+                                        </div>
+                                        <div class="inputBlock">
+                                            <div class="inputTitle">National ID</div>
+                                            <label>
+                                                <input type="text" class="inputHT" name="national_id"
+                                                       value="<%= locals.user.user_national_id %>" required disabled
+                                                       placeholder="Naitonal ID"/>
+                                            </label>
+                                        </div>
+                                        <div class="inputBlock">
+                                            <div class="inputTitle">Public Address</div>
+                                            <label>
+                                                <input type="text" class="inputHT" disabled required
+                                                       name="public_address"
+                                                       placeholder="Public Address"
+                                                       value="<%= locals.user.user_address %>"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="viewRightBottomR">
+                                        <div class="inputBlock">
+                                            <div class="inputTitle">Phone Number</div>
+                                            <label>
+                                                <input type="number" class="inputHT"
+                                                       value="<%= locals.user.user_phone %>" placeholder="Phone Number"
+                                                       name="phone" required/>
+                                            </label>
+                                        </div>
+                                        <!--                                        <div class="inputBlock">-->
+                                        <!--                                            <div class="inputTitle">Bank Name</div>-->
+                                        <!--                                            <label>-->
+                                        <!--                                                <select class="js-example-basic-single" name="bank">-->
+                                        <!--                                                    <option>Bank1</option>-->
+                                        <!--                                                    <option>Bank2</option>-->
+                                        <!--                                                    <option>Bank3</option>-->
+                                        <!--                                                    <option>Bank4</option>-->
+                                        <!--                                                </select>-->
+                                        <!--                                            </label>-->
+                                        <!--                                        </div>-->
+                                        <!--                                        <div class="inputBlock">-->
+                                        <!--                                            <div class="inputTitle">Bank Account</div>-->
+                                        <!--                                            <label>-->
+                                        <!--                                                <input type="text" class="inputHT" name="bank_account"-->
+                                        <!--                                                       placeholder="Bank Account"/>-->
+                                        <!--                                            </label>-->
+                                        <!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

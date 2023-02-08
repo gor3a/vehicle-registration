@@ -1,0 +1,86 @@
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        background-color: #33c9ae;
+        min-height: 100vh;
+    }
+</style>
+<div class="vehicles">
+    <div class="mainDashboard">
+        <%- include('../partials/sidebar') %>
+        <div class="dashBoardView">
+            <div class="logo2">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a class="selectSide" href="/">Dashboard</a>
+                    <a class="selectSide" href="/licenses">Licenses</a>
+                    <a href="#">Contact</a>
+                </div>
+
+                <span onclick="openNav()">
+                    <div class="button_menu _s">
+                        <span class="icon_menu"></span>
+                    </div>
+                </span>
+                <a href="#" class="logo-click">
+                    <img src="/imgs/logo.png" alt="#">
+                </a>
+            </div>
+            <div class="topNav">
+                <div class="topNavLeft">
+                    <a href="/"><span>Dashboard</span></a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <a href="/licenses"><span>Licenses</span></a>
+                </div>
+                <div class="topNavRight">
+
+                    <a href="/logout">
+                        <i class="fa-lg fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="viewHr">
+            <div class="title-and-button">
+                <h2>Licenses</h2>
+                <!--                <a href="/licenses/add" class="btnP1 btnP2">Add a license</a>-->
+            </div>
+
+            <div class="dashBoardParent">
+                <div class="dashBoardViewChild dashBoardViewChild4">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Vehicle Name</th>
+                                <th scope="col">Expire At</th>
+                                <% if (locals.currentUserRole !== 'admin'){ %>
+                                    <th scope="col">Actions</th>
+                                <% } %>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% if(locals.licenses && locals.licenses.length) { %>
+                                <% locals.licenses.forEach((license, key)=> { %>
+                                    <tr>
+                                        <th><%= vehicles[key].vehicle_name %></th>
+                                        <td><%= locals.timeConverter(license.expire_at) %></td>
+                                        <% if (locals.currentUserRole !== 'admin'){ %>
+                                            <td>
+                                                <% if(currentTime > (parseInt(license.expire_at))){ %>
+                                                    <a href="/licenses/renewal/<%= new_licenses_id[key] %>/<%= license.expire_at %>">Renewal</a>
+                                                <% } %>
+                                            </td>
+                                        <% } %>
+                                    </tr>
+                                <% }) %>
+                            <% }else { %>
+                                <th>There is no licenses</th>
+                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

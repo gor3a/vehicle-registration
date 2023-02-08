@@ -1,0 +1,1192 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #33c9ae;
+  min-height: 100vh;
+}
+
+hr {
+  margin: 0;
+}
+
+input:disabled {
+  background: #eee;
+}
+
+
+.sidebarMenu {
+  display: block;
+  border-radius: 20px;
+  width: 240px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1;
+
+  .menu-pages {
+    width: 240px;
+    text-align: left;
+    position: absolute;
+    z-index: 99999999999;
+    top: 0;
+    padding-top: 20px;
+    left: 0;
+    bottom: 0;
+    background: #343235;
+    height: 100% !important;
+  }
+}
+
+.mainDashboard {
+  display: flex;
+  flex-direction: row;
+  background-size: contain;
+}
+
+.logo {
+  object-fit: cover;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo2 {
+  margin-top: 25px;
+  justify-content: flex-start;
+}
+
+.button_menu {
+  float: left;
+  background: 0;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  left: 25px;
+  top: 10px;
+  height: 30px;
+  margin-right: 30px;
+
+  .icon_menu {
+    width: 19px;
+    display: block;
+    position: relative;
+    margin: auto;
+    border-top: 3px solid #33c9ae;
+    border-bottom: 3px solid #33c9ae;
+    padding-top: 2px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 19px;
+      height: 3px;
+      background-color: #33c9ae;
+      top: -8px;
+      left: 0;
+      top: 7px;
+      background-color: #33c9ae;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 19px;
+      height: 3px;
+      background-color: #33c9ae;
+      top: -8px;
+      left: 0;
+    }
+  }
+}
+
+.sidenav {
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 20px;
+  left: 20px;
+  background-color: #15a68c;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  border-radius: 20px 0px 0px 0px;
+
+  a {
+    padding: 15px 1.4285714286rem !important;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+
+    &:hover {
+      color: #05534cdc;
+    }
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  a.selectSide {
+    display: block !important;
+    border-bottom: 1px solid #dee7ef;
+    cursor: pointer;
+    margin: 0 !important;
+    height: auto !important;
+    text-align: left;
+    float: none;
+    min-height: auto;
+  }
+}
+
+.dashBoardSelection {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 10%;
+  flex-shrink: 0;
+  flex-grow: 1;
+  height: 100%;
+  min-height: 100vh;
+  padding-left: 20px;
+  //padding-right: 20px;
+
+  a {
+    text-decoration: none;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: left;
+    color: white;
+
+    div {
+      span {
+        margin-left: 14px;
+        font-size: 14px;
+        font-family: Roboto, serif;
+        font-weight: 400;
+        transition: color 0.5s ease;
+      }
+
+      i {
+        transition: color 0.5s ease;
+      }
+    }
+  }
+}
+
+.itemSelect {
+  &:hover {
+    color: #1a544a;
+  }
+}
+
+.viewHr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #dee7ef;
+  padding: 0;
+  width: 100%;
+}
+
+.hrHT {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #dee7ef;
+  padding: 0;
+  width: 100%;
+}
+
+.dashBoardView {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 90%;
+  background-color: #f1f5f8;
+  margin: 20px;
+  border-radius: 20px;
+
+  h2 {
+    margin-top: 38px;
+    margin-left: 25px;
+    margin-bottom: 24px;
+    font-weight: normal;
+    font-size: 19px;
+    display: inline-block;
+  }
+}
+
+.dashBoardParent {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashBoardViewChild1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.dashBoardViewChild2 {
+  border-radius: 5px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  background-color: white;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+  > div {
+    &:first-child {
+      margin: 25px 0px 10px 22px;
+      font-size: 17px;
+    }
+  }
+}
+
+.dashBoardViewChild3 {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.progress2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.itemC {
+  width: 2vw;
+  height: 2vw;
+  text-align: center;
+  line-height: 2vw;
+  border-radius: 5vw;
+  background: #33c9af;
+  margin: 0 1em;
+  flex-grow: 1;
+  color: white;
+  position: relative;
+}
+
+.item {
+  text-align: center;
+  margin-top: 20px;
+  flex-grow: 1;
+}
+
+.viewLeft {
+  display: flex;
+  width: 369px;
+  height: 208px;
+  flex-direction: column;
+  background-color: white;
+  margin-left: 25px;
+  margin-right: 25px;
+
+  > div {
+    &:first-child {
+      margin: 25px 0px 10px 22px;
+      font-size: 17px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:visited {
+      color: black;
+    }
+
+    &:active {
+      color: #33c9af;
+    }
+  }
+}
+
+.viewLeftVehicle {
+  height: 261px;
+}
+
+.viewLeftName {
+  margin: 25px 0px 0px 25px !important;
+  font-size: 17px !important;
+}
+
+.viewLeftJob {
+  font-size: 15px;
+  color: #718196;
+  margin-bottom: 10px;
+  margin-left: 25px;
+}
+
+.viewLeftOption {
+  margin-left: 25px;
+  font-size: 15px;
+  margin-top: 24px;
+
+  span {
+    margin-left: 10px;
+  }
+}
+
+.fa-wave-square {
+  width: 14px !important;
+}
+
+.viewRight {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.viewRightTop {
+  border-radius: 5px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  background-color: white;
+  margin-left: 25px;
+  margin-right: 25px;
+
+  > div {
+    &:first-child {
+      margin: 25px 0px 10px 22px;
+      font-size: 17px;
+    }
+  }
+}
+
+.inputBlock {
+  display: flex;
+  flex-direction: column;
+  margin: 7.5px 22px 7.5px 22px;
+}
+
+.vehicleInfoBlock {
+  display: flex;
+  flex-direction: row;
+}
+
+.vehicleInfoBlockLeft {
+  width: 50%;
+  margin-bottom: 50px;
+}
+
+.vehicleInfoBlockRight {
+  width: 50%;
+  margin-bottom: 50px;
+}
+
+.inputHT {
+  border-radius: 5px;
+  border: 1px solid #e2e8f0;
+  padding: 10px;
+  height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input {
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &:checked {
+    + {
+      .slider {
+        background-color: #33c9ae;
+
+        &:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px);
+        }
+      }
+    }
+  }
+
+  &:focus {
+    + {
+      .slider {
+        box-shadow: 0 0 1px #42c0a9;
+      }
+    }
+  }
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.checkInputBtn {
+  width: 14px;
+  height: auto;
+}
+
+.inputTitle {
+  margin-top: 14px;
+  margin-bottom: 10px;
+}
+
+.topNav {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
+
+  a {
+    &:visited {
+      color: black;
+    }
+
+    &:active {
+      color: #33c9af;
+    }
+  }
+}
+
+.topNavLeft {
+  display: inline-block;
+  margin-left: 25px;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.topNavRight {
+  float: right;
+  margin-right: 25px;
+}
+
+.fa-sign-out {
+  margin-left: 15px;
+}
+
+.inputPage0 {
+  width: 384px;
+  padding-right: 45px;
+  padding-left: 10px;
+  margin-top: 10px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 10px;
+}
+
+.inputFields {
+  display: flex;
+  flex-direction: row;
+}
+
+.LeftInput {
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  margin-right: 5px;
+}
+
+.rightInput {
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  margin-left: 5px;
+}
+
+.stepTitle {
+  font-weight: normal;
+}
+
+.btnP1 {
+  width: auto;
+  height: auto;
+  padding: 11px;
+  color: #fff;
+  margin: 7.5px 22px 7.5px 0px;
+  background-color: #33c9ae;
+  border: none;
+  border-radius: 6px;
+  text-align: center;
+  float: right;
+}
+
+.btnP2 {
+  margin-top: 30px;
+  margin-right: 25px;
+}
+
+.deleteMsg {
+  margin: 15px 0px 0px 4px;
+  color: red;
+  display: inline-block;
+}
+
+.fa-trash-can {
+  color: red;
+  display: inline-block;
+  margin-left: 24px;
+}
+
+.viewRightBottomParent {
+  border-radius: 5px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  background-color: white;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+  > div {
+    &:first-child {
+      margin: 25px 0px 10px 22px;
+      font-size: 17px;
+    }
+  }
+}
+
+.viewRightBottomChild {
+  display: flex;
+  flex-direction: row;
+}
+
+.viewRightBottomL {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.viewRightBottomR {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.viewRightBottomLemail {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewRightBottomLname {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewRightBottomLidType {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewRightBottomLid {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewRightBottomLpublicKey {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewRightBottomRphone {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewRightBottomRaddress {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewRightBottomRbankName {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewRightBottomRbankAccount {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewRightBottomRprivateKey {
+  display: flex;
+  flex-direction: column;
+}
+
+.indexParent {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.leftIndex {
+  flex-basis: 50%;
+  height: 100vh;
+}
+
+.rightIndex {
+  flex-basis: 50%;
+  height: 100vh;
+  background-color: #33c9ae;
+  background-size: contain;
+}
+
+.background0 {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.page0 {
+  position: relative;
+  color: #102854;
+  left: -81px;
+}
+
+.page1 {
+  position: relative;
+  color: #102854;
+  left: -120px;
+}
+
+.page0h5 {
+  display: inline-block;
+  color: #102854;
+}
+
+.createNewAccount {
+  > a {
+    > h5 {
+      text-decoration: underline;
+    }
+  }
+}
+
+.termsCondition {
+  width: 320px;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.termsCondition0 {
+  display: inline-block;
+  color: #102854;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.termsCondition1 {
+  display: inline-block;
+  color: #102854;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  font-size: 10px;
+}
+
+.accountCheck {
+  > h5 {
+    &:first-child {
+      font-weight: normal;
+    }
+  }
+
+  > a {
+    > h5 {
+      text-decoration: underline;
+    }
+  }
+}
+
+.emailAddress0 {
+  position: relative;
+  margin: 7.5px 0px 7.5px 0px;
+  color: #102854;
+
+  .fa {
+    position: absolute;
+    right: 19px;
+    top: 41px;
+    color: black;
+  }
+}
+
+.password0 {
+  position: relative;
+  margin: 7.5px 0px 7.5px 0px;
+  color: #102854;
+
+  .fa {
+    position: absolute;
+    right: 19px;
+    top: 41px;
+    color: black;
+  }
+}
+
+.signUP0 {
+  position: relative;
+  margin: 7.5px 0px 7.5px 0px;
+  color: #102854;
+
+  .fa-regular {
+    position: absolute;
+    right: 19px;
+    top: 41px;
+    color: black;
+  }
+
+  .fa-solid {
+    position: absolute;
+    right: 19px;
+    top: 41px;
+    color: black;
+  }
+}
+
+.btn0 {
+  button {
+    width: 384px;
+    height: 47px;
+    color: #fff;
+    margin-top: 10px;
+    background-color: #102854;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+  }
+}
+
+.notFoundContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.button404 {
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 130px;
+  height: 50px;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: #37bfa6;
+  }
+}
+
+.background404 {
+  display: inline-block;
+  margin-top: 0;
+  font-size: 15px;
+  color: white;
+  background-image: url("../imgs/404.png");
+  width: 483px;
+  height: 418px;
+  margin-right: 30px;
+}
+
+.textContent {
+  display: inline-block;
+  margin-top: 0;
+  font-size: 15px;
+  color: white;
+
+  .notFoundH1 {
+    font-size: 104px;
+    margin: 0;
+  }
+
+  .notFoundH2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0px;
+  }
+
+  .notFoundH5 {
+    font-size: 19px;
+    font-weight: normal;
+    margin-top: 17px;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+
+  &:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+}
+
+.slider.round {
+  border-radius: 34px;
+
+  &:before {
+    border-radius: 50%;
+  }
+}
+
+.vehiclesTable {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.vehicleHead {
+  display: flex;
+  margin-left: 20px;
+}
+
+.vehicleRow {
+  background-color: #fff;
+  border-radius: 7px;
+  height: 68px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.headData {
+  flex-basis: 30%;
+  flex-grow: 1;
+}
+
+.dataAction {
+  flex-basis: 10%;
+}
+
+.tableData {
+  flex-basis: 30%;
+  flex-grow: 1;
+  padding-top: 25px;
+  margin-left: 30px;
+}
+
+.tableData1 {
+  flex-basis: 10%;
+}
+
+.vehicleBody {
+  margin-top: 24px;
+}
+
+.HeadData {
+  margin-bottom: 68px;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media (min-width: 1226px) {
+  .logo2 {
+    display: none;
+  }
+}
+
+@media (max-width: 1225px) {
+  .dashBoardSelection {
+    display: none;
+  }
+  .mainDashboard {
+    display: initial;
+  }
+  .dashBoardView {
+    flex-basis: 100%;
+
+    h2 {
+      margin-top: 12px;
+    }
+  }
+  .dashBoardViewChild1 {
+    flex-direction: column;
+  }
+  .viewLeft {
+    flex-grow: 1;
+    width: auto;
+    margin-bottom: 25px;
+  }
+  .viewRight {
+    flex-grow: 1;
+    width: auto;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 868px) {
+  .leftIndex {
+    display: none;
+  }
+  .rightIndex {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 1065px) {
+  .notFoundContainer {
+    flex-direction: column;
+  }
+  .textContent {
+    margin-top: 20px;
+    text-align: center;
+    width: 450px;
+
+    .notFoundH1 {
+      font-size: 90px;
+    }
+
+    .notFoundH2 {
+      font-size: 22px;
+    }
+
+    .notFoundH5 {
+      font-size: 19px;
+    }
+  }
+}
+
+.home {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+
+  h1 {
+    font-size: 42px;
+  }
+
+  img {
+    margin-bottom: 25px;
+  }
+
+  .links {
+    a {
+      //text-decoration: none;
+      color: white;
+      margin-right: 15px;
+      border: 1px solid #102854;
+
+      &:hover {
+        background: #102854;
+      }
+    }
+  }
+}
+
+.dashBoardSelection {
+  .logo, .hrHT {
+    margin-bottom: 10px;
+  }
+}
+
+.signup, .signin {
+  .accountCheck, .createNewAccount {
+    margin-top: 10px;
+
+    * {
+      font-size: 14px;
+    }
+  }
+
+  .page1, .page0 {
+    font-size: 34px;
+  }
+
+  .inputPage0 {
+    margin-top: 5px;
+  }
+}
+
+.home_dashboard {
+  .dashBoardView {
+    h3 {
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+  }
+
+  .blocks {
+    display: flex;
+    flex-direction: row;
+
+    .block {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .info {
+        .number {
+
+        }
+
+        .title {
+
+        }
+      }
+
+      .icon {
+
+      }
+
+    }
+  }
+}
+
+.vehicles, .users {
+  .title-and-button {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    h2, a, button {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    a {
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .table-container {
+    padding: 20px;
+  }
+}
+
+.viewRightTop > div:first-child, .viewLeft > div:first-child, .viewRightBottomParent > div:first-child {
+  margin-top: 15px;
+}
+
+.viewLeft {
+  padding-bottom: 20px;
+  height: auto;
+}
+
+.viewRightTop {
+  margin-right: 0;
+}
+
+.inputBlock {
+  margin-bottom: 0;
+
+  label {
+    margin-bottom: 0;
+  }
+
+  .inputTitle {
+    margin-top: 10px;
+  }
+}
+
+.add_vehicle {
+}
+
+.profile {
+  .viewLeftName {
+    margin-top: 15px !important;
+  }
+
+  .viewLeftOption {
+    margin-top: 15px;
+  }
+
+  .viewRight {
+    margin-right: 25px;
+    margin-left: 25px;
+
+    & > * {
+      margin-left: 0;
+    }
+
+    .viewRightBottomParent {
+      margin-right: 0;
+    }
+  }
+
+  .viewLeft {
+    margin-bottom: 25px;
+  }
+
+  .viewRightTop,
+  .viewRightBottomParent {
+    padding-bottom: 25px;
+  }
+}
